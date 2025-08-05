@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:padding="24dp">
+            android:padding="24dp"
+            android:background="@drawable/child_gradient_background">
 
             <!-- Заголовок поздравления -->
             <TextView

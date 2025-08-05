@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/child_gradient_yellow"
+    android:background="@drawable/child_gradient_purple"
     android:padding="16dp"
-    tools:context=".NumberRecognitionActivity">
+    tools:context=".LetterRecognitionActivity">
 
     <!-- Верхняя панель с кнопкой назад, заголовком и прогресс-баром -->
     <LinearLayout
@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="🔢 Найди цифру"
+            android:text="🔤 Найди букву"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#1565C0"
@@ -52,7 +52,7 @@
         android:layout_height="8dp"
         android:layout_marginBottom="30dp"
         android:max="100"
-        android:progress="5"
+        android:progress="3"
         android:progressTint="#4CAF50"
         android:progressBackgroundTint="#E0E0E0" />
 
@@ -83,7 +83,7 @@
 
     </LinearLayout>
 
-    <!-- Контейнер с вопросом и карточками -->
+    <!-- Контейнер с кнопкой динамика и карточками -->
     <LinearLayout
         android:id="@+id/gameContainer"
         android:layout_width="match_parent"
@@ -92,37 +92,24 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <!-- Вопрос -->
-        <TextView
-            android:id="@+id/questionText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#D32F2F"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:background="#FFEBEE"
-            android:padding="16dp"
-            android:elevation="4dp" />
-
-        <!-- Кнопка динамика для озвучивания -->
+        <!-- Кнопка динамика для озвучивания (увеличена в 1.5 раза: с 56dp до 84dp) -->
         <ImageView
             android:id="@+id/speakerButton"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/speaker_button_background"
             android:src="@drawable/ic_volume_up"
-            android:padding="12dp"
+            android:padding="18dp"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Повторить вопрос"
+            android:contentDescription="Повторить букву"
             android:elevation="6dp" />
 
-        <!-- Сетка карточек с цифрами (2x2) -->
+        <!-- Сетка карточек с буквами (2x2) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -151,7 +138,7 @@
                     app:cardBackgroundColor="#FFFFFF">
 
                     <TextView
-                        android:id="@+id/number1"
+                        android:id="@+id/letter1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="48sp"
@@ -175,7 +162,7 @@
                     app:cardBackgroundColor="#FFFFFF">
 
                     <TextView
-                        android:id="@+id/number2"
+                        android:id="@+id/letter2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="48sp"
@@ -208,7 +195,7 @@
                     app:cardBackgroundColor="#FFFFFF">
 
                     <TextView
-                        android:id="@+id/number3"
+                        android:id="@+id/letter3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="48sp"
@@ -232,7 +219,7 @@
                     app:cardBackgroundColor="#FFFFFF">
 
                     <TextView
-                        android:id="@+id/number4"
+                        android:id="@+id/letter4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="48sp"

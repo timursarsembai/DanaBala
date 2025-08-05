@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
-    android:background="#F5F5F5"
+    android:background="@drawable/child_gradient_background"
     tools:context=".MainActivity">
 
     <!-- Заголовок приложения -->

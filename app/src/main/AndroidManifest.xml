@@ -15,7 +15,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,22 +26,32 @@
         <activity
             android:name=".MathExercisesActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ReadingExercisesActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".NumberRecognitionActivity"
             android:exported="false"
-            android:parentActivityName=".MathExercisesActivity" />
+            android:parentActivityName=".MathExercisesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".LetterRecognitionActivity"
+            android:exported="false"
+            android:parentActivityName=".ReadingExercisesActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ResultsActivity"
             android:exported="false"
-            android:parentActivityName=".NumberRecognitionActivity" />
+            android:parentActivityName=".NumberRecognitionActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

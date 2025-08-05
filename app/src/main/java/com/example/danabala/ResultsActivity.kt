@@ -51,15 +51,19 @@ class ResultsActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            tts?.language = Locale("ru", "RU")
+            tts?.language = Locale.forLanguageTag("ru-RU")
 
             // Озвучиваем поздравление
             val score = intent.getIntExtra("score", 0)
+            val total = intent.getIntExtra("total", 20)
+            val percentage = (score * 100) / total
+
             val message = when {
-                score >= 20 -> "Отлично! Ты справился идеально!"
-                score >= 18 -> "Отлично! Ты справился почти идеально!"
-                score >= 15 -> "Молодец! Очень хороший результат!"
-                score >= 10 -> "Хорошо! Продолжай тренироваться!"
+                percentage == 100 -> "Отлично! Ты справился идеально!"
+                percentage >= 90 -> "Отлично! Ты справился почти идеально!"
+                percentage >= 80 -> "Молодец! Очень хороший результат!"
+                percentage >= 70 -> "Молодец! Неплохой результат!"
+                percentage >= 50 -> "Хорошо! Продолжай тренироваться!"
                 else -> "Неплохо! В следующий раз получится лучше!"
             }
 
@@ -78,7 +82,7 @@ class ResultsActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         // Настраиваем звездочки
         setupStars(stars)
 
-        // Обновляем сообщение в з��висимости от количества звезд
+        // Обновляем сообщение в зависимости от количества звезд
         val messageText = when {
             stars == 5 -> "Превосходно! 🏆"
             stars == 4 -> "Отлично! ⭐"
@@ -151,7 +155,13 @@ class ResultsActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private fun setupButtons() {
         findViewById<CardView>(R.id.retryButton).setOnClickListener {
-            val intent = Intent(this, NumberRecognitionActivity::class.java)
+            // Получаем информацию о родительском разделе для кнопки "Повторить"
+            val parentSection = intent.getStringExtra("parentSection") ?: "math"
+
+            val intent = when (parentSection) {
+                "reading" -> Intent(this, LetterRecognitionActivity::class.java)
+                else -> Intent(this, NumberRecognitionActivity::class.java) // по умолчанию математика
+            }
             startActivity(intent)
             finish()
         }

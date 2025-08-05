@@ -31,7 +31,8 @@ class ReadingExercisesActivity : AppCompatActivity() {
 
     private fun setupExerciseCards() {
         findViewById<CardView>(R.id.cardLetters).setOnClickListener {
-            // TODO: Изучение букв
+            val intent = Intent(this, LetterRecognitionActivity::class.java)
+            startActivity(intent)
         }
 
         findViewById<CardView>(R.id.cardSyllables).setOnClickListener {
